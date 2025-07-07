@@ -24,7 +24,7 @@
     {% if subject.notes.all %}
         <ul>
             {% for note in subject.notes.all %}
-                <li>{{ note.title }}</li>
+                <li><a href="{% url 'notes:note_detail' note.id %}">{{ note.title }}</a></li>
             {% endfor %}
         </ul>
     {% else %}

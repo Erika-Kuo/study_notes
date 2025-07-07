@@ -1,0 +1,21 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Notesthrhe{% endblock %}
+
+{% block content %}
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.content }}</p>
+    <p>Created on: {{ note.created_at }}</p>
+    <p>Last modified: {{ note.updated_at }}</p>
+    
+    <form action="{% url 'notes:edit_note' note.id %}" method="get">
+        <button type="submit">Edit Note</button>
+    </form>
+    
+    <form action="{% url 'notes:delete_note' note.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Delete Note</button>
+    </form>
+    
+    <p><a href="{% url 'notes:subject_detail' subject.id %}">Back to Subject</a></p>
+{% endblock %}
