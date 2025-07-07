@@ -21,3 +21,7 @@ def create_note(request, subject_id=None):
             return render(request, 'notes/note_form.html', {'error': error, 'subject_id': subject_id})
     else:
         return render(request, 'notes/note_form.html', {'subject_id': subject_id})
+
+def subject_detail(request, subject_id):
+    subject = get_object_or_404(Subject.objects.prefetch_related('subsubjects', 'notes'), id=subject_id)
+    return render(request, 'notes/subject_detail.html', {'subject': subject})

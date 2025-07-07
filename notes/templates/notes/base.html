@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Study Notes{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'notes:home' %}">Study Notes</a></h1>
+        <hr>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <hr>
+        <p>&copy; 2024 Study Notes App</p>
+    </footer>
+</body>
+</html>

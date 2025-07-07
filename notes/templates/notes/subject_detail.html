@@ -1,0 +1,38 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Subject: {{ subject.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ subject.name }}</h1>
+    <h2>Sub-Subjects</h2>
+    {% if subject.subsubjects.all %}
+        <ul>
+            {% for sub in subject.subsubjects.all %}
+                <li>
+                    <form action="{% url 'notes:subject_detail' sub.id %}" method="get" style="display:inline;">
+                        <button type="submit">{{ sub.name }}</button>
+                    </form>
+                    <a href="{% url 'notes:create_note' sub.id %}">Add Note</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No sub-subjects.</p>
+    {% endif %}
+
+    <h2>Notes</h2>
+    {% if subject.notes.all %}
+        <ul>
+            {% for note in subject.notes.all %}
+                <li>{{ note.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No notes available.</p>
+    {% endif %}
+
+    <h2>Videos</h2>
+    <p>Videos can be added here in the future.</p>
+
+    <p><a href="{% url 'notes:home' %}">Back to Home</a></p>
+{% endblock %}
