@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +52,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'study_notes.urls'
+CSP_DEFAULT_SRC = ("'self'", 'https://www.youtube.com')
+CSP_FRAME_SRC = ("'self'", 'https://www.youtube.com')
 
 TEMPLATES = [
     {
