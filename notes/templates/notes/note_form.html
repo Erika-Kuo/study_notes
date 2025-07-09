@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Create Note</title>
+    <!-- CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 </head>
 <body>
     <h1>Create Note</h1>
@@ -14,6 +16,9 @@
         <input type="text" id="title" name="title" required><br><br>
         <label for="content">Content:</label><br>
         <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+        <script>
+            CKEDITOR.replace('content');
+        </script>
         <input type="submit" value="Create Note">
     </form>
     <p><a href="{% url 'notes:home' %}">Back to Home</a></p>

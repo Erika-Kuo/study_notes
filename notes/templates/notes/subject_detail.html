@@ -41,7 +41,7 @@
     <div class="notes">
         {% for note in subject.notes.all %}
             <div class="note-card">
-                <h3>{{ note.title }}</h3>
+                <h3><a href="{% url 'notes:note_detail' note.id %}">{{ note.title }}</a></h3>
                 <p>{{ note.content|truncatewords:20 }}</p>
             </div>
         {% empty %}
