@@ -1,22 +1,48 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
+</html><head>
     <title>{% block title %}Study Notes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'notes/styles.css' %}">
 </head>
-<body>
-    <header>
-        <h1><a href="{% url 'notes:home' %}">Study Notes</a></h1>
-        <hr>
-        {{ form.media }}
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <hr>
-        <p>&copy; 2024 Study Notes App</p>
-    </footer>
+<body style="display: flex; min-height: 100vh; margin: 0;">
+    <nav style="width: 220px; background: #f4f4f4; padding: 20px 10px; border-right: 1px solid #ddd; min-height: 100vh;">
+        <h2 style="font-size: 1.2em; margin-top: 0;">Subjects</h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            {% for subj in subjects %}
+                <li style="margin-bottom: 10px;">
+                    <details>
+                        <summary style="cursor:pointer; font-weight: bold;">
+                            <a href="{% url 'notes:subject_detail' subj.id %}" style="text-decoration: none; color: inherit;">{{ subj.name }}</a>
+                        </summary>
+                        {% if subj.subsubjects.all %}
+                        <ul style="list-style: none; padding-left: 15px;">
+                            {% for sub in subj.subsubjects.all %}
+                                <li style="margin: 5px 0;">
+                                    <a href="{% url 'notes:subject_detail' sub.id %}" style="text-decoration: none; color: #333;">{{ sub.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </details>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <div style="flex: 1; display: flex; flex-direction: column; min-height: 100vh;">
+        <header>
+            <h1><a href="{% url 'notes:home' %}">Study Notes</a></h1>
+            <hr>
+            {{ form.media }}
+        </header>
+        <main style="flex: 1;">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <hr>
+            <p>&copy; 2024 Study Notes App</p>
+        </footer>
+    </div>
 </body>
 </html>
