@@ -1,38 +1,54 @@
 {% extends 'notes/base.html' %}
 
+{% load static %}
+{% load truncate_html %}
+
 {% block title %}Subject: {{ subject.name }}{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'notes/styles.css' %}">
+
+<header class="subject-overview">
     <h1>{{ subject.name }}</h1>
-    <h2>Sub-Subjects</h2>
-    {% if subject.subsubjects.all %}
-        <ul>
-            {% for sub in subject.subsubjects.all %}
-                <li>
-                    <form action="{% url 'notes:subject_detail' sub.id %}" method="get" style="display:inline;">
-                        <button type="submit">{{ sub.name }}</button>
-                    </form>
-                    <a href="{% url 'notes:create_note' sub.id %}">Add Note</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No sub-subjects.</p>
-    {% endif %}
+<div>{{ subject.details|truncate_words_html:50|safe }}</div>
+    <a href="#" class="read-more">Read more</a>
+    <div class="subject-background" style="background-image: url('https://via.placeholder.com/400x300?text=Background+Image');"></div>
+</header>
 
-    <h2>Notes</h2>
-    {% if subject.notes.all %}
-        <ul>
-            {% for note in subject.notes.all %}
-                <li><a href="{% url 'notes:note_detail' note.id %}">{{ note.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No notes available.</p>
-    {% endif %}
+<div class="content-below">
+    <div class="videos">
+        <h2>Videos</h2>
+        <div class="video-item">
+            <!-- Placeholder for video thumbnail -->
+            <img src="https://via.placeholder.com/150x100?text=Video+1" alt="Video 1">
+        </div>
+        <div class="video-item">
+            <img src="https://via.placeholder.com/150x100?text=Video+2" alt="Video 2">
+        </div>
+        <a href="#" class="view-more-btn">View more</a>
+    </div>
 
-    <h2>Videos</h2>
-    <p>Videos can be added here in the future.</p>
+    <div class="sub-subjects">
+        {% for sub in subject.subsubjects.all %}
+            <form action="{% url 'notes:subject_detail' sub.id %}" method="get" style="display:inline;">
+                <button type="submit" class="sub-subject-btn">{{ sub.name }}</button>
+            </form>
+        {% empty %}
+            <p>No sub-subjects.</p>
+        {% endfor %}
+    </div>
 
-    <p><a href="{% url 'notes:home' %}">Back to Home</a></p>
+    <div class="notes">
+        {% for note in subject.notes.all %}
+            <div class="note-card">
+                <h3>{{ note.title }}</h3>
+                <p>{{ note.content|truncatewords:20 }}</p>
+            </div>
+        {% empty %}
+            <p>No notes available.</p>
+        {% endfor %}
+        <div class="expand-btn">&#x25BC;</div>
+    </div>
+</div>
+
 {% endblock %}

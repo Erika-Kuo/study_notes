@@ -1,8 +1,11 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+from ckeditor.fields import RichTextField
+
 class Subject(models.Model):
     name = models.CharField(max_length=200)
+    details = RichTextField(blank=True, null=True)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subsubjects')
 
     def __str__(self):
