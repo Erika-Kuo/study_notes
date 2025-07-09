@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Subject(models.Model):
     name = models.CharField(max_length=200)
@@ -12,6 +13,7 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    content = RichTextField()
 
     def __str__(self):
         return self.title
