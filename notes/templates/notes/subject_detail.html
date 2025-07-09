@@ -6,7 +6,12 @@
 {% block title %}Subject: {{ subject.name }}{% endblock %}
 
 
+
 {% block content %}
+
+<div style="text-align: right; margin-bottom: 1em;">
+    <a href="{% url 'notes:create_note' subject.id %}" class="add-note-btn" style="background: #4CAF50; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none;">+ Add Note</a>
+</div>
 
 <header class="subject-overview">
     <h1>{{ subject.name }}</h1>
