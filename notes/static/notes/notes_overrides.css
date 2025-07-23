@@ -1,0 +1,67 @@
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 24px 0;
+}
+.note-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(60, 60, 120, 0.10);
+    border: 1px solid #e0e7ff;
+    padding: 22px 18px 18px 18px;
+    width: 220px;
+    min-height: 180px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.note-card h3 {
+    font-size: 1.15em;
+    margin-bottom: 0.7em;
+    color: #3a86ff;
+    font-weight: 600;
+}
+.note-card p {
+    color: #444;
+    font-size: 0.98em;
+    margin-bottom: 1em;
+}
+.note-card .note-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+.note-card .note-action-btn {
+    background: #fff;
+    border: 1px solid #e0e7ff;
+    border-radius: 6px;
+    color: #3a86ff;
+    padding: 6px 12px;
+    font-size: 0.97em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.note-card .note-action-btn.delete {
+    color: #ef476f;
+    border-color: #ef476f;
+}
+.note-card .note-action-btn.delete:hover {
+    background: #ef476f;
+    color: #fff;
+}
+.note-card .note-action-btn:hover {
+    background: #3a86ff;
+    color: #fff;
+    border-color: #3a86ff;
+}

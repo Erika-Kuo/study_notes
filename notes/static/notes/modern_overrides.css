@@ -1,0 +1,159 @@
+/* Modern UI overrides for Study Notes */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    min-height: 100vh;
+    color: #22223b;
+}
+nav {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(60, 60, 120, 0.08);
+    margin: 24px 0 24px 24px;
+    padding: 24px 12px 24px 12px;
+    min-width: 200px;
+    max-width: 240px;
+    transition: box-shadow 0.3s;
+    height: fit-content;
+}
+nav h2 {
+    color: #3a86ff;
+    font-size: 1.3em;
+    margin-bottom: 1.2em;
+    letter-spacing: 1px;
+}
+nav ul {
+    padding: 0;
+}
+nav li {
+    margin-bottom: 12px;
+    list-style: none;
+}
+nav details summary {
+    font-weight: 600;
+    color: #22223b;
+    cursor: pointer;
+    padding: 6px 0;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+nav details[open] summary {
+    background: #e0e7ff;
+}
+nav a {
+    color: #3a86ff;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #8338ec;
+    text-decoration: underline;
+}
+nav ul ul {
+    margin-top: 6px;
+    padding-left: 18px;
+}
+nav ul ul li a {
+    color: #22223b;
+    font-size: 0.98em;
+    padding: 2px 0;
+}
+nav ul ul li a:hover {
+    color: #3a86ff;
+}
+.add-note-btn {
+    background: linear-gradient(90deg, #3a86ff 60%, #8338ec 100%);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+    border: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-block;
+}
+.add-note-btn:hover {
+    background: linear-gradient(90deg, #2667cc 60%, #6d28d9 100%);
+    box-shadow: 0 4px 16px rgba(60, 60, 120, 0.12);
+}
+.note-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
+    border: 1px solid #e0e7ff;
+    padding: 18px 14px;
+    width: 180px;
+    height: 210px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.note-card:hover {
+    box-shadow: 0 6px 24px rgba(60, 60, 120, 0.16);
+    transform: translateY(-2px) scale(1.03);
+}
+.videos, .sub-subjects, .notes {
+    border: 1px solid #e0e7ff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(60, 60, 120, 0.06);
+}
+.video-item {
+    margin-bottom: 10px;
+    border: 1px solid #e0e7ff;
+    border-radius: 8px;
+    padding: 7px;
+    background: #f8fafc;
+    box-shadow: 0 1px 4px rgba(60, 60, 120, 0.04);
+}
+.sub-subject-btn {
+    padding: 8px 14px;
+    background: linear-gradient(90deg, #e0e7ff 60%, #bdb2ff 100%);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #22223b;
+    margin-bottom: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.sub-subject-btn:hover {
+    background: linear-gradient(90deg, #3a86ff 60%, #8338ec 100%);
+    color: #fff;
+}
+.subject-overview {
+    border: 1px solid #e0e7ff;
+    border-radius: 16px;
+    padding: 24px 32px 24px 32px;
+    background: linear-gradient(90deg, #f8fafc 60%, #e0e7ff 100%);
+    position: relative;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(60, 60, 120, 0.08);
+    z-index: 2;
+    overflow: visible;
+}
+.subject-overview h1 {
+    font-size: 2.1em;
+    color: #3a86ff;
+    margin-bottom: 0.3em;
+}
+.subject-overview .read-more {
+    color: #8338ec;
+    font-weight: 500;
+}
+.expand-btn {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    color: #3a86ff;
+    transition: color 0.2s;
+}
+.expand-btn:hover {
+    color: #8338ec;
+}

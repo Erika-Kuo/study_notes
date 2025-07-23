@@ -1,0 +1,113 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    background: none;
+}
+.sidebar-nav {
+    min-width: 230px;
+    max-width: 260px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(60, 60, 120, 0.08);
+    margin: 32px 0 32px 32px;
+    padding: 32px 18px 32px 18px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.sidebar-nav h2 {
+    color: #3a86ff;
+    font-size: 1.3em;
+    margin-bottom: 1.2em;
+    letter-spacing: 1px;
+}
+.sidebar-nav ul {
+    padding: 0;
+    width: 100%;
+}
+.sidebar-nav li {
+    margin-bottom: 12px;
+    list-style: none;
+}
+.sidebar-nav details summary {
+    font-weight: 600;
+    color: #22223b;
+    cursor: pointer;
+    padding: 6px 0;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.sidebar-nav details[open] summary {
+    background: #e0e7ff;
+}
+.sidebar-nav a {
+    color: #3a86ff;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.sidebar-nav a:hover {
+    color: #8338ec;
+    text-decoration: underline;
+}
+.sidebar-nav ul ul {
+    margin-top: 6px;
+    padding-left: 18px;
+}
+.sidebar-nav ul ul li a {
+    color: #22223b;
+    font-size: 0.98em;
+    padding: 2px 0;
+}
+.sidebar-nav ul ul li a:hover {
+    color: #3a86ff;
+}
+.home-link {
+    margin-top: 2em;
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(90deg, #3a86ff 60%, #8338ec 100%);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+    border: none;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.home-link:hover {
+    background: linear-gradient(90deg, #2667cc 60%, #6d28d9 100%);
+    color: #fff;
+}
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 32px 32px 32px 0;
+    background: none;
+    padding-left: 24px;
+    box-sizing: border-box;
+}
+.main-content header {
+    margin-bottom: 1.5em;
+}
+.main-content main {
+    flex: 1;
+}
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+    .sidebar-nav {
+        margin: 0 0 24px 0;
+        width: 100%;
+        max-width: 100vw;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
+    }
+    .main-content {
+        margin: 0 8px;
+    }
+}
